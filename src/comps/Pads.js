@@ -9,34 +9,38 @@ import GROOVE_B_TANGGU from '../assets/GrooveB_120bpm_Tanggu.mp3';
 import MAZE_PERC from '../assets/MazePolitics_120_Perc.mp3';
 import PAS3_GROOVE from '../assets/PAS3GROOVE1.03B.mp3';
 import ORGAN_SYNTH from '../assets/SilentStar_120_Em_OrganSynth.mp3';
+import NEWLOOP from '../assets/new_loop_1.mp3'
 import PadButton from './PadButton'
 
 export default function Pads() {
 
+    const listArr = []
 
     return (
-        <div>
+        <div className='pads-container'>
             {padsArr.map((item, index) => {
                 return (
-                    <div key={index}>
-                        <PadButton
-                            sound={item.sound}
-                            name={item.name}
-                        />
-                    </div>
+                    <PadButton
+                    listArr={listArr}
+                        key={index}
+                        id={index}
+                        sound={item.sound}
+                        name={item.name}
+                    />
                 )
             })}
         </div>
     )
 }
 let padsArr = [
-    { name: 'FUTURE_FUNK_BEAT', sound: FUTURE_FUNK_BEAT },
-    { name: 'STUTTER_BREAKBEAT', sound: STUTTER_BREAKBEAT },
+    { name: 'FUNK BEAT', sound: FUTURE_FUNK_BEAT },
+    { name: 'BREAKBEAT', sound: STUTTER_BREAKBEAT },
     { name: 'BASS', sound: BASS },
     { name: 'GUITAR', sound: GUITAR },
-    { name: 'FUD_STOMPY', sound: FUD_STOMPY },
-    { name: 'GROOVE_B_TANGGU', sound: GROOVE_B_TANGGU },
-    { name: 'MAZE_PERC', sound: MAZE_PERC },
-    { name: 'PAS3_GROOVE', sound: PAS3_GROOVE },
-    { name: 'ORGAN_SYNTH', sound: ORGAN_SYNTH },
+    { name: 'FUD STOMPY', sound: FUD_STOMPY },
+    { name: 'TANGGU', sound: GROOVE_B_TANGGU },
+    { name: 'PERC', sound: MAZE_PERC },
+    { name: 'PAS3 GROOVE', sound: PAS3_GROOVE },
+    { name: 'ORGAN', sound: ORGAN_SYNTH },
+    { name: 'NEWLOOP', sound: NEWLOOP },
 ]

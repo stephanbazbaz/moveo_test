@@ -1,28 +1,41 @@
-import React from 'react'
+import React, { useRef, useEffect } from "react";
+import './style.scss';
+export default function PadButton({ sound, name, id, listArr }) {
+    const [isPlay, setIsPlay] = React.useState(false);
+    const audio = useRef(new Audio(sound));
+    // const [listArr, setlistArr] = React.useState([]);
 
-export default function PadButton({ sound, name }) {
+    useEffect(() => {
+        audio.current.preload = "none";
+        audio.current.loop = true;
+    }, [audio]);
+    // const listArr = []
 
-    const [isPlay, setisPlay] = React.useState(true)
 
-    let myAudio
-    const playSound = (soundSrc) => {
-        myAudio = new Audio(soundSrc);
-        console.log(myAudio);
-        myAudio.preload = 'none'
-        myAudio.loop = true
-
+    const playSound = (n) => {
+        const index = listArr.indexOf(n);
         if (isPlay) {
-            myAudio.play()
-            setisPlay(false)
+            audio.current.pause();
+            audio.current.currentTime = 0;
+            setIsPlay(false);
+            listArr.splice(index, 1)
+            console.log(listArr);
+            return;
         }
-        else {
-            myAudio.pause()
-            myAudio.currentTime = 0;
-        }
+        audio.current.play();
+        setIsPlay(true);
+        listArr.push(n)
+        loop()
+    }
+    const loop = () => {
+        console.log(listArr);
     }
     return (
         <button
-            onClick={() => playSound(sound)}
-        >{name}</button>
-    )
+            className='pad-button'
+            id={id}
+            onClick={() => playSound(name)}>
+            {name}
+        </button>
+    );
 }

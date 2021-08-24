@@ -1,0 +1,10 @@
+.pads-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 70%;
+    .pad-button {
+        width: 150px;
+        height: 150px;
+    }
+}
