@@ -3,7 +3,7 @@ import './style.scss';
 export default function PadButton({ sound, name, id, listArr, isLoopPlaying }) {
     const [isPlay, setIsPlay] = React.useState(false);
     const audio = useRef(new Audio(sound));
-    // const [listArr, setlistArr] = React.useState([]);
+  
 
     useEffect(() => {
         audio.current.preload = "none";
