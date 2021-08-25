@@ -12,7 +12,12 @@ import ORGAN_SYNTH from '../assets/SilentStar_120_Em_OrganSynth.mp3';
 import NEWLOOP from '../assets/new_loop_1.mp3';
 import PadButton from './PadButton';
 import PlayRecordBar from './PlayRecordBar';
+import MpcTitle from './MpcTitle'
+import Screen from './Screen'
 export default function Pads() {
+    const [listArr, setlistArr] = React.useState([])
+    const [isLoopPlaying, setisLoopPlaying] = React.useState(false)
+    const [clearLoop, setclearLoop] = React.useState()
 
     const futureBeat = useRef(new Audio(FUTURE_FUNK_BEAT));
     const stutterBeat = useRef(new Audio(STUTTER_BREAKBEAT));
@@ -39,6 +44,8 @@ export default function Pads() {
         { name: 'NEWLOOP', sound: newLoop },
     ]
 
+
+
     useEffect(() => {
         futureBeat.current.preload = "none";
         // futureBeat.current.loop = true;
@@ -62,17 +69,14 @@ export default function Pads() {
         // newLoop.current.loop = true;
     }, [futureBeat]);
 
-    const [listArr, setlistArr] = React.useState([])
-    const [isLoopPlaying, setisLoopPlaying] = React.useState(false)
-    const [clearLoop, setclearLoop] = React.useState()
 
     const startLoop = () => {
+        // startcount()
         var t0 = performance.now()
         setisLoopPlaying(true)
         setclearLoop(setTimeout(() => {
             startLoop()
             if (listArr.length > 0) {
-                // futureBeat.current.play()
                 for (let i = 0; i < listArr.length; i++) {
                     switch (listArr[i]) {
                         case futureBeat.current.src:
@@ -136,7 +140,6 @@ export default function Pads() {
             }
 
             var t1 = performance.now()
-            
             delaytime = (16000 - (t1 - t0))
             console.log(delaytime);
         }, delaytime > 7000 ? delaytime : 8000))
@@ -171,6 +174,8 @@ export default function Pads() {
 
     return (
         <div className='pads-container'>
+            <MpcTitle />
+            <Screen />
             {padsArr.map((item, index) => {
                 return (
                     <PadButton
