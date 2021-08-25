@@ -174,6 +174,7 @@ export default function Pads() {
 
     return (
         <div className='pads-container'>
+       
             <MpcTitle />
             <Screen />
             {padsArr.map((item, index) => {
