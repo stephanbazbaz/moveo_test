@@ -24,6 +24,7 @@ export default function Pads() {
     const pasGroove = useRef(new Audio(PAS3_GROOVE));
     const organSynth = useRef(new Audio(ORGAN_SYNTH));
     const newLoop = useRef(new Audio(NEWLOOP));
+    var delaytime
 
     let padsArr = [
         { name: 'FUNK BEAT', sound: futureBeat },
@@ -40,67 +41,88 @@ export default function Pads() {
 
     useEffect(() => {
         futureBeat.current.preload = "none";
-        futureBeat.current.loop = true;
+        // futureBeat.current.loop = true;
         stutterBeat.current.preload = "none";
-        stutterBeat.current.loop = true;
+        // stutterBeat.current.loop = true;
         bass.current.preload = "none";
-        bass.current.loop = true;
+        // bass.current.loop = true;
         guitar.current.preload = "none";
-        guitar.current.loop = true;
+        // guitar.current.loop = true;
         fudStompy.current.preload = "none";
-        fudStompy.current.loop = true;
+        // fudStompy.current.loop = true;
         grooveB.current.preload = "none";
-        grooveB.current.loop = true;
+        // grooveB.current.loop = true;
         mazePerc.current.preload = "none";
-        mazePerc.current.loop = true;
+        // mazePerc.current.loop = true;
         pasGroove.current.preload = "none";
-        pasGroove.current.loop = true;
+        // pasGroove.current.loop = true;
         organSynth.current.preload = "none";
-        organSynth.current.loop = true;
+        // organSynth.current.loop = true;
         newLoop.current.preload = "none";
-        newLoop.current.loop = true;
-    }, []);
+        // newLoop.current.loop = true;
+    }, [futureBeat]);
 
     const [listArr, setlistArr] = React.useState([])
     const [isLoopPlaying, setisLoopPlaying] = React.useState(false)
     const [clearLoop, setclearLoop] = React.useState()
 
     const startLoop = () => {
+        var t0 = performance.now()
         setisLoopPlaying(true)
         setclearLoop(setTimeout(() => {
-           
             startLoop()
             if (listArr.length > 0) {
+                // futureBeat.current.play()
                 for (let i = 0; i < listArr.length; i++) {
                     switch (listArr[i]) {
                         case futureBeat.current.src:
+                            futureBeat.current.pause();
+                            futureBeat.current.currentTime = 0;
                             futureBeat.current.play()
                             break;
                         case stutterBeat.current.src:
+                            stutterBeat.current.pause();
+                            stutterBeat.current.currentTime = 0;
                             stutterBeat.current.play()
                             break;
                         case bass.current.src:
+                            bass.current.pause();
+                            bass.current.currentTime = 0;
                             bass.current.play()
                             break;
                         case guitar.current.src:
+                            guitar.current.pause();
+                            guitar.current.currentTime = 0;
                             guitar.current.play()
                             break;
                         case fudStompy.current.src:
+                            fudStompy.current.pause();
+                            fudStompy.current.currentTime = 0;
                             fudStompy.current.play()
                             break;
                         case grooveB.current.src:
+                            grooveB.current.pause();
+                            grooveB.current.currentTime = 0;
                             grooveB.current.play()
                             break;
                         case mazePerc.current.src:
+                            mazePerc.current.pause();
+                            mazePerc.current.currentTime = 0;
                             mazePerc.current.play()
                             break;
                         case pasGroove.current.src:
+                            pasGroove.current.pause();
+                            pasGroove.current.currentTime = 0;
                             pasGroove.current.play()
                             break;
                         case organSynth.current.src:
+                            organSynth.current.pause();
+                            organSynth.current.currentTime = 0;
                             organSynth.current.play()
                             break;
                         case newLoop.current.src:
+                            newLoop.current.pause();
+                            newLoop.current.currentTime = 0;
                             newLoop.current.play()
                             break;
 
@@ -112,7 +134,13 @@ export default function Pads() {
                 // audio1.current.play();
 
             }
-        }, 4000))
+
+            var t1 = performance.now()
+            
+            delaytime = (16000 - (t1 - t0))
+            console.log(delaytime);
+        }, delaytime > 7000 ? delaytime : 8000))
+
     }
 
     const stopLoop = () => {

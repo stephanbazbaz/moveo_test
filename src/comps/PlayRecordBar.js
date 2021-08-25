@@ -1,6 +1,7 @@
 import React from 'react'
-
 export default function PlayRecordBar({ startLoop, stopLoop }) {
+
+
 
     return (
         <div className='play-record-container'>
