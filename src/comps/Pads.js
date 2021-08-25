@@ -14,27 +14,29 @@ import PadButton from './PadButton'
 import PlayRecordBar from './PlayRecordBar'
 export default function Pads() {
 
-    let clearLoop;
+
     const [listArr, setlistArr] = React.useState([])
-    const stopLoop = () => {
-        clearTimeout(clearLoop)
-    }
+    const [isLoopPlaying, setisLoopPlaying] = React.useState(false)
+    const [clearLoop, setclearLoop] = React.useState()
+
     const startLoop = () => {
-        clearLoop = setTimeout(() => {
+        setisLoopPlaying(true)
+        setclearLoop (setTimeout(() => {
             startLoop()
             if (listArr.length > 0) {
                 console.log(listArr);
-                
             }
-        }, 3000);
-
+        }, 3000))
     }
-
+    const stopLoop = () => {
+        clearTimeout(clearLoop)
+    }
     return (
         <div className='pads-container'>
             {padsArr.map((item, index) => {
                 return (
                     <PadButton
+                        isLoopPlaying={isLoopPlaying}
                         listArr={listArr}
                         key={index}
                         id={index}
@@ -47,7 +49,7 @@ export default function Pads() {
                 startLoop={startLoop}
                 stopLoop={stopLoop}
             />
-           
+
         </div>
     )
 }
