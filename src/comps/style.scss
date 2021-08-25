@@ -3,8 +3,36 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 70%;
-    .pad-button {
+    border: solid 1px #d4d4d4;
+    padding: 20px 10px 0 10px;
+    background-color: #e2e2e2;
+    .btn-warp {
+        margin: 0 0 20px 0;
+        background-color: whitesmoke;
         width: 150px;
         height: 150px;
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .pad-button {
+            background-color: #eeecec;
+            border: none;
+            width: 120px;
+            height: 120px;
+            border-radius: 5px;
+
+        }
+        .pad-button:focus {
+            transform: scale(0.97);
+        }
+        .pad-button:hover {
+            cursor: pointer;
+        }
+    }
+    .demoObject {
+        -webkit-box-shadow: 0px 2px 7px -3px rgba(79, 79, 79, 0.65);
+        box-shadow: 0px 2px 7px -3px rgba(79, 79, 79, 0.65);
+        background: #ffffff;
     }
 }

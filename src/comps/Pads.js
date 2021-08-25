@@ -11,17 +11,31 @@ import PAS3_GROOVE from '../assets/PAS3GROOVE1.03B.mp3';
 import ORGAN_SYNTH from '../assets/SilentStar_120_Em_OrganSynth.mp3';
 import NEWLOOP from '../assets/new_loop_1.mp3'
 import PadButton from './PadButton'
-
+import PlayRecordBar from './PlayRecordBar'
 export default function Pads() {
 
-    const listArr = []
+    let clearLoop;
+    const [listArr, setlistArr] = React.useState([])
+    const stopLoop = () => {
+        clearTimeout(clearLoop)
+    }
+    const startLoop = () => {
+        clearLoop = setTimeout(() => {
+            startLoop()
+            if (listArr.length > 0) {
+                console.log(listArr);
+                
+            }
+        }, 3000);
+
+    }
 
     return (
         <div className='pads-container'>
             {padsArr.map((item, index) => {
                 return (
                     <PadButton
-                    listArr={listArr}
+                        listArr={listArr}
                         key={index}
                         id={index}
                         sound={item.sound}
@@ -29,6 +43,11 @@ export default function Pads() {
                     />
                 )
             })}
+            <PlayRecordBar
+                startLoop={startLoop}
+                stopLoop={stopLoop}
+            />
+           
         </div>
     )
 }

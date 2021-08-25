@@ -9,33 +9,32 @@ export default function PadButton({ sound, name, id, listArr }) {
         audio.current.preload = "none";
         audio.current.loop = true;
     }, [audio]);
-    // const listArr = []
 
-
+   
     const playSound = (n) => {
         const index = listArr.indexOf(n);
         if (isPlay) {
-            audio.current.pause();
-            audio.current.currentTime = 0;
+            // audio.current.pause();
+            // audio.current.currentTime = 0;
             setIsPlay(false);
             listArr.splice(index, 1)
-            console.log(listArr);
             return;
         }
-        audio.current.play();
+        // audio.current.play();
         setIsPlay(true);
         listArr.push(n)
-        loop()
     }
-    const loop = () => {
-        console.log(listArr);
-    }
+ 
     return (
-        <button
-            className='pad-button'
-            id={id}
-            onClick={() => playSound(name)}>
-            {name}
-        </button>
+
+        <div className='btn-warp'>
+            <button
+                className='pad-button demoObject'
+                id={id}
+                onClick={() => playSound(name)}>
+                {name}
+            </button>
+        </div>
+
     );
 }
