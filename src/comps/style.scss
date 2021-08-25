@@ -66,9 +66,11 @@
         justify-content: center;
         margin: 0 0 2% 0;
         .screen-row {
+            box-sizing: border-box;
             width: 400px;
             height: 100px;
             background-color: white;
+            padding: 5px;
         }
     }
     .box-shadow-screen {
