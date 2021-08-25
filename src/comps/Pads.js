@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './style.scss';
 import FUTURE_FUNK_BEAT from '../assets/120_future_funk_beats_25.mp3';
 import STUTTER_BREAKBEAT from '../assets/120_stutter_breakbeats_16.mp3';
@@ -14,22 +14,30 @@ import PadButton from './PadButton'
 import PlayRecordBar from './PlayRecordBar'
 export default function Pads() {
 
-
+    const audio = useRef(new Audio());
+    useEffect(() => {
+        audio.current.preload = "none";
+        audio.current.loop = true;
+    }, [audio]);
     const [listArr, setlistArr] = React.useState([])
     const [isLoopPlaying, setisLoopPlaying] = React.useState(false)
     const [clearLoop, setclearLoop] = React.useState()
 
     const startLoop = () => {
         setisLoopPlaying(true)
-        setclearLoop (setTimeout(() => {
+        setclearLoop(setTimeout(() => {
             startLoop()
             if (listArr.length > 0) {
-                console.log(listArr);
+                audio.current.src = listArr[0]
+                audio.current.play();
+                console.log(audio);
             }
-        }, 3000))
+        }, 8000))
     }
     const stopLoop = () => {
         clearTimeout(clearLoop)
+        audio.current.pause();
+        audio.current.currentTime = 0;
     }
     return (
         <div className='pads-container'>

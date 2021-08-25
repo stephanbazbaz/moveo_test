@@ -35,7 +35,7 @@ export default function PadButton({ sound, name, id, listArr, isLoopPlaying }) {
             <button
                 className='pad-button demoObject'
                 id={id}
-                onClick={() => playSound(name)}>
+                onClick={() => playSound(sound)}>
                 {name}
             </button>
         </div>
