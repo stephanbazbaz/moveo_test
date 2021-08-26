@@ -114,7 +114,12 @@ export default function Pads({ setIsSpining }) {
 
   //Plays the recorded session
   const playRecordedSession = () => {
+
     const session = JSON.parse(localStorage.getItem("RECORDING"))
+    if (!session) {
+      alert('No seesion has recorded')
+      return
+    }
     session.forEach((item) => {
       soundRefs.current[item].currentTime = 0;
       soundRefs.current[item].play();
