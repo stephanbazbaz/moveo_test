@@ -2,4 +2,28 @@
     .disco-ball {
         display: none;
     }
+
+    .pads-container {
+        padding: 15px 20px 10px 20px !important;
+    }
+    .pads-container .btn-warp {
+        margin: 5px 0 5px 0 !important;
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .play-bar-warp {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        padding: 0px 20px !important;
+    }
+    .pads-container .btn-warp .pad-button {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .pads-container .title-container .mpc-title {
+        font-size: 15px !important;
+    }
+    .version {
+        font-size: 12px;
+    }
 }

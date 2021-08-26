@@ -4,15 +4,16 @@ import "./recordStyle.scss";
 import { Play } from "./Play";
 import { Stop } from "./Stop";
 export default function PlayRecordBar({ playRecordedSession, isLoopPlaying, startLoop, stopLoop, recordSession }) {
-  //transform: rotateY 180deg)
+
   return (
-    <div
+    <div className='play-bar-warp'
       style={{
         border: "1px solid #e955e5",
         width: "100%",
         marginTop: 20,
         marginBottom: 20,
         padding: 20,
+        boxSizing: 'border-box'
       }}
     >
       <div

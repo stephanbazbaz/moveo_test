@@ -26,6 +26,7 @@
             font-size: 40px;
         }
     }
+
     .btn-warp {
         margin: 0 0 20px 0;
         background-color: whitesmoke;
@@ -36,29 +37,36 @@
         justify-content: center;
         align-items: center;
         .pad-button {
+            color: #02b47d;
+            font-family: second;
             background-color: #eeecec;
             border: none;
             width: 120px;
             height: 120px;
             border-radius: 5px;
+            font-weight: 900;
+            font-size: 15px;
         }
+
         .pad-button:focus {
             transform: scale(0.97);
         }
+
         .pad-button:hover {
             cursor: pointer;
         }
     }
+
     .demoObject {
         -webkit-box-shadow: 0px 2px 7px -3px rgba(79, 79, 79, 0.65);
         box-shadow: 0px 2px 7px -3px rgba(79, 79, 79, 0.65);
         background: #ffffff;
     }
+
     .play-hover {
         color: black;
         width: 50px;
         position: absolute;
-        /* bottom: 79%; */
         margin-top: -31px;
         background-color: #aeaeae;
         padding: 2px;
@@ -67,11 +75,13 @@
         opacity: 0.9;
         display: none;
     }
-    .play-btn:hover{
-        .play-hover{
+
+    .play-btn:hover {
+        .play-hover {
             display: block;
         }
     }
+
     .session-hover {
         color: black;
         transform: rotateY(180deg);
@@ -84,6 +94,7 @@
         opacity: 0.9;
         display: none;
     }
+    
     .play-session-btn:hover {
         .session-hover {
             display: block;

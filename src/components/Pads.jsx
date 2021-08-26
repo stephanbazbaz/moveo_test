@@ -23,8 +23,8 @@ let soundsNames = [
   "KICK",
   "DRUM LOOP",
   "BASS",
-  "GUITAR",
-  "GUITAR2",
+  "GUITAR ONE",
+  "GUITAR TWO",
   "KEYS",
   "SHAKER",
   "PERC",
@@ -101,6 +101,7 @@ export default function Pads({ setIsSpining }) {
     setSoundsToPlay(soundsToPlay.filter((i) => i !== index));
   };
 
+  //Records the session to local storage
   const recordSession = () => {
     setisRecording(!isRecording)
     if (!isRecording) {
@@ -111,6 +112,7 @@ export default function Pads({ setIsSpining }) {
     console.log('stop recording');
   }
 
+  //Plays the recorded session
   const playRecordedSession = () => {
     const session = JSON.parse(localStorage.getItem("RECORDING"))
     session.forEach((item) => {
