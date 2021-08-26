@@ -8,16 +8,24 @@
   margin: auto;
 }
 
-.wooden-1 {
-  border-radius: 10px;
-  background-image: url("./assets/4a7fbe6afba01eb307691fbd9aa36105.jpeg");
-  width: 78%;
-  position: absolute;
-  top: 28.9px;
-  /* bottom: 50px; */
-  height: 100%;
-  max-height: 630px;
-  z-index: -1;
-  box-sizing: border-box;
-  border: 1px solid grey;
+.disco-ball {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  top: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
