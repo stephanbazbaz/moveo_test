@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import './mediaQuery.scss'
 import Pads from "./components/Pads";
 import DISCOBALL from './assets/noun_Disco Ball_108176.svg'
 

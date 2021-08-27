@@ -101,3 +101,36 @@
         }
     }
 }
+@media only screen and (max-width: 728px) {
+    .disco-ball {
+        display: none;
+    }
+
+    .pads-container {
+        box-sizing: border-box ;
+        width: 100% ;
+        border-radius: 0px ;
+        margin: 0px ;
+    }
+    .pads-container .btn-warp {
+        margin: 5px 0 5px 0 ;
+        width: 110px ;
+        height: 110px ;
+    }
+    .play-bar-warp {
+        margin-top: 5px ;
+        margin-bottom: 5px ;
+        padding: 0px 20px ;
+    }
+    .pads-container .btn-warp .pad-button {
+        width: 90px ;
+        height: 90px ;
+        font-size: 13px ;
+    }
+    .pads-container .title-container .mpc-title {
+        font-size: 15px ;
+    }
+    .version {
+        font-size: 12px;
+    }
+}
